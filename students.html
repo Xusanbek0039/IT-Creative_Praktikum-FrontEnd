@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O'quvchilar - iOS-Style Bottom Navigation</title>
+  <link rel="stylesheet" href="src/index.css">
+  <link rel="stylesheet" href="src/components/Navbar/style.css">
+  <style>
+    .page-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .page-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    
+    .students-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .students-table th {
+      text-align: left;
+      padding: 1rem;
+      font-weight: 600;
+      background-color: rgba(0, 122, 255, 0.1);
+      color: var(--text-color);
+    }
+    
+    .students-table td {
+      padding: 1rem;
+      border-top: 1px solid var(--divider-color);
+      color: var(--text-color);
+    }
+    
+    .students-table tr:hover {
+      background-color: rgba(0, 122, 255, 0.05);
+    }
+    
+    .student-status {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .status-active {
+      background-color: rgba(52, 199, 89, 0.2);
+      color: var(--success-color);
+    }
+    
+    .status-inactive {
+      background-color: rgba(255, 59, 48, 0.2);
+      color: var(--error-color);
+    }
+    
+    .search-bar {
+      display: flex;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .search-bar input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--divider-color);
+      border-radius: var(--border-radius-sm);
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      font-size: 1rem;
+    }
+    
+    .search-bar input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-content">
+    <h1 class="page-title">O'quvchilar</h1>
+    <p class="page-description">
+      Barcha o'quvchilar ro'yxati. O'quvchi ma'lumotlarini ko'rish yoki tahrirlash uchun ro'yxatdan tegishli o'quvchini tanlang.
+    </p>
+    
+    <div class="search-bar">
+      <input type="text" placeholder="O'quvchi ismini qidirish...">
+    </div>
+    
+    <table class="students-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Ism Familiya</th>
+          <th>Telefon Raqami</th>
+          <th>Yo'nalish</th>
+          <th>To'lov Holati</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#1001</td>
+          <td>Alisher Navoiy</td>
+          <td>+998 90 123 45 67</td>
+          <td>Web dasturlash</td>
+          <td>To'langan</td>
+          <td><span class="student-status status-active">Faol</span></td>
+        </tr>
+        <tr>
+          <td>#1002</td>
+          <td>Amir Temur</td>
+          <td>+998 90 765 43 21</td>
+          <td>Mobile dasturlash</td>
+          <td>To'lanmagan</td>
+          <td><span class="student-status status-inactive">Faol emas</span></td>
+        </tr>
+        <tr>
+          <td>#1003</td>
+          <td>Mirzo Ulug'bek</td>
+          <td>+998 91 234 56 78</td>
+          <td>Data Science</td>
+          <td>To'langan</td>
+          <td><span class="student-status status-active">Faol</span></td>
+        </tr>
+        <tr>
+          <td>#1004</td>
+          <td>Abu Ali ibn Sino</td>
+          <td>+998 93 876 54 32</td>
+          <td>Web dasturlash</td>
+          <td>To'langan</td>
+          <td><span class="student-status status-active">Faol</span></td>
+        </tr>
+        <tr>
+          <td>#1005</td>
+          <td>Zahiriddin Muhammad Bobur</td>
+          <td>+998 94 123 45 67</td>
+          <td>Python dasturlash</td>
+          <td>To'lanmagan</td>
+          <td><span class="student-status status-inactive">Faol emas</span></td>
+        </tr>
+        <tr>
+          <td>#1006</td>
+          <td>Abu Rayhon Beruniy</td>
+          <td>+998 95 987 65 43</td>
+          <td>Java dasturlash</td>
+          <td>To'langan</td>
+          <td><span class="student-status status-active">Faol</span></td>
+        </tr>
+        <tr>
+          <td>#1007</td>
+          <td>Abdulla Qodiriy</td>
+          <td>+998 97 345 67 89</td>
+          <td>Frontend</td>
+          <td>To'langan</td>
+          <td><span class="student-status status-active">Faol</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div id="navbar-container"></div>
+  
+  <script src="src/components/Navbar/nav.js"></script>
+  <script>
+    // Set default theme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS-Style Bottom Navigation</title>
+  <link rel="stylesheet" href="src/index.css">
+  <link rel="stylesheet" href="src/components/Navbar/style.css">
+  <style>
+    .page-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .page-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    
+    .demo-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-content">
+    <h1 class="page-title">Bosh sahifa</h1>
+    <p class="page-description">
+      Bu sahifada o'quv markazining asosiy ma'lumotlari va statistikasi ko'rsatilgan. Kerakli ma'lumotlar va hisobotlarni ko'rish uchun quyidagi bo'limlardan foydalaning.
+    </p>
+    
+    <div class="demo-cards">
+      <div class="card">
+        <h3>O'quvchilar</h3>
+        <p>Jami o'quvchilar soni: 324</p>
+        <p>Faol o'quvchilar: 256</p>
+        <p>Bitiruvchilar: 68</p>
+      </div>
+      
+      <div class="card">
+        <h3>O'qituvchilar</h3>
+        <p>Jami o'qituvchilar: 18</p>
+        <p>Faol o'qituvchilar: 16</p>
+        <p>Yangi o'qituvchilar: 2</p>
+      </div>
+      
+      <div class="card">
+        <h3>Yo'nalishlar</h3>
+        <p>Jami yo'nalishlar: 12</p>
+        <p>Faol kurslar: 8</p>
+        <p>Yangi kurslar: 3</p>
+      </div>
+      
+      <div class="card">
+        <h3>Testlar</h3>
+        <p>Jami testlar: 36</p>
+        <p>Haftalik testlar: 4</p>
+        <p>Imtihonlar: 2</p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="navbar-container"></div>
+  
+  <script src="src/components/Navbar/nav.js"></script>
+  <script>
+    // Set default theme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  </script>
+</body>
+</html>
