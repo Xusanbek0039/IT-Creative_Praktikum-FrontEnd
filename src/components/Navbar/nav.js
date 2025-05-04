@@ -35,12 +35,17 @@ async function injectNavbar() {
     // Insert the navbar HTML
     navContainer.innerHTML = html;
     
-    // Initialize the navbar
-    initializeNavbar();
+    // **Keyingilikni to'g'ri ishlash uchun delay qo'shish:**
+    setTimeout(() => {
+      // Initialize the navbar after the DOM is rendered
+      initializeNavbar();
+    }, 0);
   } catch (error) {
     console.error('Error injecting navbar:', error);
   }
 }
+
+
 
 /**
  * Initializes all navbar functionality
@@ -208,7 +213,13 @@ function initializeModeToggle() {
 function updateModeToggleIcon(theme) {
   const sunIcon = document.querySelector('.sun-icon');
   const moonIcon = document.querySelector('.moon-icon');
-  
+
+  // Faqat ikonlar DOM’da bo‘lsa, keyin ishlatamiz
+  if (!sunIcon || !moonIcon) {
+    console.warn('⚠️ Mode toggle icons not found in DOM.');
+    return;
+  }
+
   if (theme === 'dark') {
     sunIcon.style.display = 'block';
     moonIcon.style.display = 'none';
@@ -217,6 +228,7 @@ function updateModeToggleIcon(theme) {
     moonIcon.style.display = 'block';
   }
 }
+
 
 /**
  * Initializes the language switcher
