@@ -1,0 +1,582 @@
+/* iOS-Style Navbar Styling */
+
+.pastki-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  /* Navbar background styles for light/dark mode */
+  .yorug-rejim .pastki-navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-top-color: var(--yorug-chegara);
+  }
+  
+  .tungi-rejim .pastki-navbar {
+    background-color: rgba(30, 41, 59, 0.85);
+    border-top-color: var(--tungi-chegara);
+  }
+  
+  /* Logo styling */
+  .navbar-logo {
+    flex-shrink: 0;
+    margin-right: 16px;
+  }
+  
+  .logo-text {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--asosiy-rang);
+  }
+  
+  /* Main navigation items */
+  .navbar-tugmalar {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  .navbar-tugmalar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  
+  .nav-item {
+    position: relative;
+    margin: 0 12px;
+    flex-shrink: 0;
+  }
+  
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 12px;
+    color: inherit;
+    outline: none;
+    position: relative;
+  }
+  
+  .yorug-rejim .nav-link {
+    color: var(--yorug-matn-ikkilamchi);
+  }
+  
+  .tungi-rejim .nav-link {
+    color: var(--tungi-matn-ikkilamchi);
+  }
+  
+  .nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-text {
+    font-size: 10px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  /* Active navigation item styles */
+  .nav-item.aktiv .nav-link {
+    color: var(--asosiy-rang);
+  }
+  
+  .nav-item.aktiv .nav-icon {
+    color: var(--asosiy-rang);
+    transform: translateY(-4px);
+    filter: drop-shadow(0 4px 4px rgba(59, 130, 246, 0.3));
+  }
+  
+  /* Hover effects for nav items */
+  .nav-link:hover .nav-icon {
+    transform: scale(1.1);
+  }
+  
+  .nav-item:not(.aktiv) .nav-link:hover {
+    background-color: var(--yorug-hover);
+  }
+  
+  .tungi-rejim .nav-item:not(.aktiv) .nav-link:hover {
+    background-color: var(--tungi-hover);
+  }
+  
+  /* Ko'proq button animation */
+  .koproq-tugma {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .koproq-tugma.ochiq {
+    transform: rotate(45deg);
+  }
+  
+  /* Navbar extras section */
+  .navbar-extras {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  /* Language selector */
+  .til-selector {
+    position: relative;
+  }
+  
+  .til-tugma {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .til-tugma:hover {
+    background-color: var(--yorug-hover);
+  }
+  
+  .tungi-rejim .til-tugma:hover {
+    background-color: var(--tungi-hover);
+  }
+  
+  .til-dropdown {
+    position: absolute;
+    bottom: 44px;
+    right: 0;
+    width: 120px;
+    background-color: var(--yorug-fon);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    animation: fadeSlideUp 0.2s ease-out;
+    z-index: 1100;
+  }
+  
+  .tungi-rejim .til-dropdown {
+    background-color: var(--tungi-fon);
+    border: 1px solid var(--tungi-chegara);
+  }
+  
+  .til-dropdown.ochiq {
+    display: block;
+  }
+  
+  .til-variant {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+  }
+  
+  .yorug-rejim .til-variant {
+    color: var(--yorug-matn);
+  }
+  
+  .tungi-rejim .til-variant {
+    color: var(--tungi-matn);
+  }
+  
+  .til-variant:hover {
+    background-color: var(--yorug-hover);
+  }
+  
+  .tungi-rejim .til-variant:hover {
+    background-color: var(--tungi-hover);
+  }
+  
+  /* Theme toggle button */
+  .tungi-rejim-tugma {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .tungi-rejim-tugma:hover {
+    background-color: var(--yorug-hover);
+  }
+  
+  .tungi-rejim .tungi-rejim-tugma:hover {
+    background-color: var(--tungi-hover);
+  }
+  
+  .quyosh-icon, .oy-icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+  }
+  
+  .quyosh-icon {
+    color: #f59e0b;
+    opacity: 1;
+    transform: rotate(0);
+  }
+  
+  .oy-icon {
+    color: #9ca3af;
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  
+  .tungi-rejim .quyosh-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  
+  .tungi-rejim .oy-icon {
+    opacity: 1;
+    transform: rotate(0);
+    color: #d1d5db;
+  }
+  
+  /* Profile menu */
+  .profil-container {
+    position: relative;
+  }
+  
+  .profil-tugma {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .profil-tugma:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+  }
+  
+  .profil-rasm {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profil-dropdown {
+    position: absolute;
+    bottom: 48px;
+    right: 0;
+    width: 280px;
+    background-color: var(--yorug-fon);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    animation: fadeSlideUp 0.2s ease-out;
+    z-index: 1100;
+  }
+  
+  .tungi-rejim .profil-dropdown {
+    background-color: var(--tungi-fon);
+    border: 1px solid var(--tungi-chegara);
+  }
+  
+  .profil-dropdown.ochiq {
+    display: block;
+  }
+  
+  .profil-info {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--yorug-chegara);
+  }
+  
+  .tungi-rejim .profil-info {
+    border-bottom-color: var(--tungi-chegara);
+  }
+  
+  .profil-rasm-katta {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    object-fit: cover;
+    border: 3px solid var(--yorug-fon);
+    box-shadow: var(--shadow);
+  }
+  
+  .tungi-rejim .profil-rasm-katta {
+    border-color: var(--tungi-fon);
+  }
+  
+  .profil-ism {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .profil-status {
+    font-size: 14px;
+    color: var(--yorug-matn-ikkilamchi);
+    margin-bottom: 8px;
+  }
+  
+  .tungi-rejim .profil-status {
+    color: var(--tungi-matn-ikkilamchi);
+  }
+  
+  .profil-faollik {
+    font-size: 12px;
+    color: var(--yorug-matn-ikkilamchi);
+  }
+  
+  .tungi-rejim .profil-faollik {
+    color: var(--tungi-matn-ikkilamchi);
+  }
+  
+  .profil-menyular {
+    padding: 8px;
+  }
+  
+  .profil-menyu-element {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .yorug-rejim .profil-menyu-element {
+    color: var(--yorug-matn);
+  }
+  
+  .tungi-rejim .profil-menyu-element {
+    color: var(--tungi-matn);
+  }
+  
+  .profil-menyu-element:hover {
+    background-color: var(--yorug-hover);
+  }
+  
+  .tungi-rejim .profil-menyu-element:hover {
+    background-color: var(--tungi-hover);
+  }
+  
+  .profil-menyu-element.chiqish {
+    color: var(--xavf-rang);
+  }
+  
+  .menyu-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+  }
+  
+  /* Ko'proq menyusi */
+  .koproq-container {
+    position: relative;
+  }
+  
+  .koproq-menyu {
+    position: absolute;
+    width: 320px;
+    max-height: 500px;
+    overflow-y: auto;
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--yorug-fon);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 16px;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    z-index: 1100;
+    animation: fadeSlideUp 0.2s ease-out;
+  }
+  
+  .tungi-rejim .koproq-menyu {
+    background-color: var(--tungi-fon);
+    border: 1px solid var(--tungi-chegara);
+  }
+  
+  .koproq-menyu.ochiq {
+    display: grid;
+  }
+  
+  .menyu-ustun {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .menyu-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+  
+  .yorug-rejim .menyu-element {
+    color: var(--yorug-matn);
+  }
+  
+  .tungi-rejim .menyu-element {
+    color: var(--tungi-matn);
+  }
+  
+  .menyu-element:hover {
+    background-color: var(--yorug-hover);
+  }
+  
+  .tungi-rejim .menyu-element:hover {
+    background-color: var(--tungi-hover);
+  }
+  
+  .menyu-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .menyu-element span {
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  /* Overlay for closing dropdowns */
+  .navbar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    display: none;
+  }
+  
+  .navbar-overlay.ochiq {
+    display: block;
+  }
+  
+  /* Animations */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Grid icon specific styling */
+  .grid-icon {
+    stroke-width: 2.5;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .pastki-navbar {
+      padding: 0 8px;
+    }
+    
+    .navbar-logo {
+      display: none;
+    }
+    
+    .navbar-tugmalar {
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+    
+    .nav-item:not(.koproq-container):not(.profil-container) {
+      display: none;
+    }
+    
+    .nav-link {
+      padding: 8px 12px;
+    }
+    
+    .navbar-extras {
+      margin-left: auto;
+    }
+    
+    .koproq-menyu {
+      width: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .profil-dropdown {
+      width: 260px;
+      right: -16px;
+    }
+    
+    .koproq-container {
+      display: block !important;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .pastki-navbar {
+      padding: 0 32px;
+    }
+    
+    .nav-item {
+      margin: 0 20px;
+    }
+  }
