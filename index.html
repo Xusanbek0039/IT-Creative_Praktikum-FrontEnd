@@ -3,27 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - iOS Navigation Demo</title>
-  <link rel="stylesheet" href="style.css">
+  <title>iOS-Style Navigation Bar</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <div class="page-container">
-    <h1 class="page-title">Welcome to EduHub</h1>
-    <p class="page-description">This demo shows an iOS-style navigation bar with all the requested features, including dark/light mode toggle, language switcher, and profile dropdown.</p>
-    
-    <div class="card">
-      <h2>How to Navigate</h2>
-      <p>Use the bottom tab bar to navigate between different sections. The active tab is highlighted with the primary color.</p>
-      <p>Try clicking on different tabs to see the smooth transition animations.</p>
-      <p>You can also toggle between dark and light mode using the sun/moon icon in the top bar.</p>
-    </div>
-    
-    <button class="button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-      <span>Explore Now</span>
-    </button>
-  </div>
+  <main class="content">
+    <h1>iOS-Style Navigation Demo</h1>
+    <p>This is a demo page showing the iOS-style bottom navigation bar.</p>
+    <p>Try clicking on different tabs, the profile icon, language switcher, or the "More" button.</p>
+    <p>You can also toggle between dark and light mode using the button in the navbar.</p>
+  </main>
   
-  <script src="nav.js"></script>
+  <!-- The navigation bar will be injected here by nav.js -->
+  <div id="nav-container"></div>
+
+  <script src="js/nav.js"></script>
 </body>
 </html>
