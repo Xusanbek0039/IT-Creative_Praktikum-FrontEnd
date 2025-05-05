@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	fetch('slidebar.html')
 	  .then(response => {
 		if (!response.ok) {
+		  // Agar faylni olishda xatolik bo'lsa, xatolikni chiqarish
 		  throw new Error('Sidebar faylni olishda xatolik: ' + response.status);
 		}
+		// Agar javob muvaffaqiyatli bo'lsa, HTML ni o'qing
 		return response.text();
 	  })
 	  .then(html => {
@@ -54,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	  }
   
+	  // Check screen size on load and on resize
 	  checkScreenSize();
 	  window.addEventListener('resize', checkScreenSize);
 	}
