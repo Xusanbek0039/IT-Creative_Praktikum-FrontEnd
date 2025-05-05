@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 	// 1. Sidebar'ni yuklab olish
-	fetch('/slidebar.html')
+	fetch('slidebar.html')
 	  .then(response => {
 		if (!response.ok) {
 		  throw new Error('Sidebar faylni olishda xatolik: ' + response.status);
