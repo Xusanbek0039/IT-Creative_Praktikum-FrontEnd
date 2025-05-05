@@ -1,0 +1,433 @@
+:root {
+    --sidebar-width-collapsed: 70px;
+    --sidebar-width-expanded: 250px;
+    --sidebar-bg: #1a1d23;
+    --sidebar-hover: #2c3039;
+    --sidebar-active: #3048a2;
+    --text-color: #ffffff;
+    --text-muted: #a0a0a0;
+    --primary-color: #4263eb;
+    --content-bg: #141519;
+    --card-bg: #1e2128;
+    --header-bg: #1a1d23;
+    --border-color: #2a2e38;
+    --transition-speed: 0.25s;
+    --youtube-color: #ff0000;
+    --github-color: #6e5494;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: var(--content-bg);
+    color: var(--text-color);
+    overflow-x: hidden;
+  }
+  
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--sidebar-bg);
+    transition: width var(--transition-speed) ease-in-out;
+    overflow-x: hidden;
+    z-index: 999;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    width: var(--sidebar-width-collapsed);
+  }
+  
+  .sidebar.expanded {
+    width: var(--sidebar-width-expanded);
+  }
+  
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .toggle-btn:hover {
+    background-color: var(--sidebar-hover);
+  }
+  
+  .sidebar-logo {
+    margin-left: 16px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+    overflow: hidden;
+  }
+  
+  .sidebar.expanded .sidebar-logo {
+    opacity: 1;
+  }
+  
+  .sidebar-nav {
+    padding: 16px 0;
+  }
+  
+  .nav-item {
+    padding: 0 8px;
+    margin-bottom: 8px;
+    list-style: none;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+  }
+  
+  .nav-link:hover {
+    background-color: var(--sidebar-hover);
+  }
+  
+  .nav-link.active {
+    background-color: var(--sidebar-active);
+  }
+  
+  .nav-icon {
+    font-size: 1.2rem;
+    min-width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-text {
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+  }
+  
+  .sidebar.expanded .nav-text {
+    opacity: 1;
+  }
+  
+  .sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 16px 8px;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .avatar {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .avatar:hover {
+    background-color: var(--sidebar-hover);
+  }
+  
+  .avatar-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .avatar-info {
+    margin-left: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+  }
+  
+  .sidebar.expanded .avatar-info {
+    opacity: 1;
+  }
+  
+  .avatar-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .avatar-status {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  
+  /* Content Styles */
+  .content {
+    flex: 1;
+    margin-left: var(--sidebar-width-collapsed);
+    transition: margin-left var(--transition-speed) ease-in-out;
+  }
+  
+  .sidebar.expanded ~ .content {
+    margin-left: var(--sidebar-width-expanded);
+  }
+  
+  /* Header Styles */
+  .header {
+    padding: 16px 24px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .search-container {
+    position: relative;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .search-container input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  
+  .search-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(66, 99, 235, 0.2);
+  }
+  
+  .search-btn {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-btn:hover {
+    color: var(--text-color);
+    background-color: var(--sidebar-hover);
+    border-color: var(--primary-color);
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .header-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+  }
+  
+  .header-btn:hover {
+    background-color: var(--sidebar-hover);
+    border-color: var(--primary-color);
+  }
+  
+  .social-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid var(--border-color);
+    font-size: 0.95rem;
+  }
+  
+  .social-btn i {
+    font-size: 1.2rem;
+  }
+  
+  .social-btn.youtube:hover {
+    background-color: var(--youtube-color);
+    border-color: var(--youtube-color);
+    transform: translateY(-2px);
+  }
+  
+  .social-btn.github:hover {
+    background-color: var(--github-color);
+    border-color: var(--github-color);
+    transform: translateY(-2px);
+  }
+  
+  /* Blog Grid Styles */
+  .main-content {
+    padding: 24px;
+  }
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .blog-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .blog-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .blog-card:hover .blog-image img {
+    transform: scale(1.05);
+  }
+  
+  .blog-content {
+    padding: 20px;
+  }
+  
+  .blog-content h2 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+  }
+  
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  .blog-content p {
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  
+  .blog-btn {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .blog-btn:hover {
+    background-color: #3755cc;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+    }
+  
+    .search-container {
+      width: 100%;
+    }
+  
+    .header-actions {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+      width: 0;
+    }
+    
+    .sidebar.expanded {
+      width: 250px;
+    }
+    
+    .content {
+      margin-left: 0;
+    }
+    
+    .sidebar.expanded ~ .content {
+      margin-left: 0;
+    }
+  }

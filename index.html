@@ -1,32 +1,93 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT Creative - Yangiliklar</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>So'nggi Bloglar</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div id="sidebar-container"></div> <!-- Sidebar shu joyga yuklanadi -->
-
-
-  <!-- Main Content Area -->
-  <div class="content">
-    <h1>sahvsadv sagvadh</h1>
-
-    <div class="yangiliklar-container">
-      <h1>Yangiliklar sahifasi</h1>
-      <p>Bu yerda eng so'nggi yangiliklar joylashgan</p>
+  <div class="app-container">
+    <div id="sidebar-container"></div>
+    
+    <div class="content">
+      <header class="header">
+        <div class="header-content">
+          <div class="search-container">
+            <input type="text" placeholder="Qidirish...">
+            <button class="search-btn" title="Qidirish">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="header-actions">
+            <button class="header-btn">So'nggi qo'shildi</button>
+            <a href="https://youtube.com" target="_blank" class="social-btn youtube">
+              <i class="fa-brands fa-youtube"></i>
+              <span>YouTube</span>
+            </a>
+            <a href="https://github.com" target="_blank" class="social-btn github">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </header>
       
-      <!-- Yangiliklar uchun misol kontent -->
-      <div class="news-card">
-        <h2>Yangi dasturlash tillari haqida</h2>
-        <p>2025-yilda eng mashxur bo'lgan dasturlash tillari haqida ma'lumot...</p>
-      </div>
+      <main class="main-content">
+        <div class="blog-grid">
+          <!-- Blog Card 1 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img src="https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Hot air balloons">
+            </div>
+            <div class="blog-content">
+              <h2>Sayohatning ajoyib sirlari</h2>
+              <div class="blog-meta">
+                <span class="author">Muallif: Alisher Navoiy</span>
+                <span class="date">15.08.2023</span>
+              </div>
+              <p>Sayohatning go'zalligi va uning ajoyib sirlari haqida qiziqarli ma'lumotlar...</p>
+              <button class="blog-btn">Ko'proq o'qish</button>
+            </div>
+          </div>
+          
+          <!-- Blog Card 2 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Programming code">
+            </div>
+            <div class="blog-content">
+              <h2>Zamonaviy texnologiyalar</h2>
+              <div class="blog-meta">
+                <span class="author">Muallif: Bobur Mirzo</span>
+                <span class="date">10.08.2023</span>
+              </div>
+              <p>Bugungi kunda rivojlanib borayotgan texnologiyalar va ularning hayotimizdagi o'rni...</p>
+              <button class="blog-btn">Ko'proq o'qish</button>
+            </div>
+          </div>
+          
+          <!-- Blog Card 3 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Healthy food">
+            </div>
+            <div class="blog-content">
+              <h2>Dunyo bo'ylab sayohat</h2>
+              <div class="blog-meta">
+                <span class="author">Muallif: Gulnora Karimova</span>
+                <span class="date">05.08.2023</span>
+              </div>
+              <p>Turli mamlakatlarga qilingan sayohatlar va ularning o'ziga xos madaniyati haqida...</p>
+              <button class="blog-btn">Ko'proq o'qish</button>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </div>
-  
-  <!-- Scripts -->
+
   <script src="js/slidebar.js"></script>
 </body>
 </html>
